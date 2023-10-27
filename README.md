@@ -14,8 +14,8 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 
 **4.2 MYSQL II:**
 
-- [ ] 1.  Consultas sobre las películas
-- [ ] 2.  Consultas sobre los actores.
+- [X] 1.  Consultas sobre las películas
+- [X] 2.  Consultas sobre los actores.
 - [ ] 3.  Consultas sobre los usuarios.
 - [ ] 4.  Bonus: Agrega más campos a las tablas.
 
