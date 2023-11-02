@@ -16,13 +16,8 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 
 - [X] 1.  Consultas sobre las películas
 - [X] 2.  Consultas sobre los actores.
-<<<<<<< HEAD
 - [X] 3.  Consultas sobre los usuarios.
 - [X] 4.  Bonus: Agrega más campos a las tablas.
-=======
-- [ ] 3.  Consultas sobre los usuarios.
-- [ ] 4.  Bonus: Agrega más campos a las tablas.
->>>>>>> 71a35d3818a67072340966f98d67b61ca35d5b25
 
 **4.3 MYSQL III:**
 
@@ -32,15 +27,15 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 
 **4.4 Node JS:**
 
-- [ ] 1. Descarga el proyecto
-- [ ] 2. Arranca el backend
-- [ ] 3. Arranca el front end
-- [ ] 4. Prueba el proyecto
-- [ ] 5. Entiende el código del proyecto
+- [X] 1. Descarga el proyecto
+- [X] 2. Arranca el backend
+- [X] 3. Arranca el front end
+- [X] 4. Prueba el proyecto
+- [X] 5. Entiende el código del proyecto
 
 **4.5 Express JS I:**
 
-- [ ] 1. Pide todas las películas
+- [X] 1. Pide todas las películas
 
 **4.6 Express JS II:**
 
