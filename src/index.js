@@ -31,16 +31,15 @@ app.listen(port, () => {
 app.get('/movies', async (req, res) => {
   //require para cuando envien datos
   //response para enviar desde el server datos al front
-
+  console.log(req.query.genre);
   //obteber los datos de la base de datos
     //1. obtener conexion  
     const conn = await getConnetion();
     //2. consulta que quiero a la bd: obtener todas las alumnas
-    const queryMovies = "SELECT * FROM movies";
+    const queryMovies = "SELECT * FROM movies WHERE genre = req.query.genre";
     //3. ejecutar consulta
     const [results] = await conn.query(queryMovies);
 
-    console.log (results);
     //4. cerrar conexion
     conn.end();
 
@@ -50,3 +49,4 @@ app.get('/movies', async (req, res) => {
     movies:  results
   });
 });
+
