@@ -27,15 +27,15 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 
 **4.4 Node JS:**
 
-- [ ] 1. Descarga el proyecto
-- [ ] 2. Arranca el backend
-- [ ] 3. Arranca el front end
-- [ ] 4. Prueba el proyecto
-- [ ] 5. Entiende el código del proyecto
+- [X] 1. Descarga el proyecto
+- [X] 2. Arranca el backend
+- [X] 3. Arranca el front end
+- [X] 4. Prueba el proyecto
+- [X] 5. Entiende el código del proyecto
 
 **4.5 Express JS I:**
 
-- [ ] 1. Pide todas las películas
+- [X] 1. Pide todas las películas
 
 **4.6 Express JS II:**
 
