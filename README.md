@@ -16,13 +16,8 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 
 - [X] 1.  Consultas sobre las películas
 - [X] 2.  Consultas sobre los actores.
-<<<<<<< HEAD
 - [X] 3.  Consultas sobre los usuarios.
 - [X] 4.  Bonus: Agrega más campos a las tablas.
-=======
-- [ ] 3.  Consultas sobre los usuarios.
-- [ ] 4.  Bonus: Agrega más campos a las tablas.
->>>>>>> 71a35d3818a67072340966f98d67b61ca35d5b25
 
 **4.3 MYSQL III:**
 
