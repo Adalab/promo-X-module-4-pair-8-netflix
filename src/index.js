@@ -16,7 +16,7 @@ async function getConnetion (){
 const connection = await mysql.createConnection({
   host:"localhost",
   user: "root",
-  password: "Taniamoreno1991",
+  password: "2016Pa13Qr10Lg",
   database: "netflix"
 });
 connection.connect();
@@ -30,24 +30,45 @@ app.listen(port, () => {
 
 //endpoint para todas las peliculas
 app.get('/movies', async (req, res) => {
-  //require para cuando envien datos
-  //response para enviar desde el server datos al front
-  console.log(req.query.genre);
+  const genreFilter = req.query.genre
+  console.log (genreFilter)
+
   //obteber los datos de la base de datos
     //1. obtener conexion  
     const conn = await getConnetion();
-    //2. consulta que quiero a la bd: obtener todas las alumnas
-    const queryMovies = "SELECT * FROM movies WHERE genre = req.query.genre";
-    //3. ejecutar consulta
-    const [results] = await conn.query(queryMovies);
+    
+    let queryMovies = '';
+    if (genreFilter !== undefined) {
 
-    //4. cerrar conexion
-    conn.end();
+     queryMovies = "SELECT * FROM movies WHERE genre = ? ";
+     const [results] = await conn.query(queryMovies, [req.query.genre])
+     conn.end();
+     res.json({
+      success: true,
+      movies:  results
+    });
 
+    }else {
+      queryMovies = "SELECT * FROM movies";
+      const [results] = await conn.query(queryMovies)
+      conn.end();
+      res.json({
+       success: true,
+       movies:  results
+     });
 
-  res.json({
-    success: true,
-    movies:  results
-  });
+    }
+  
+    app.get('/id',async (req, res) =>{
+      const filterId= req.query.id_movies;
+      const query= "SELECT * FROM movies WHERE id_movies=? ";
+      const Id = req.query.id_movies;
+      const connection = await getConnection();
+      const [results] = await connection.query(query,[filterId, Id] );
+      res.json(results);
+      connection.end();
+     
+  
+  } )
 });
 
