@@ -16,7 +16,7 @@ async function getConnetion (){
 const connection = await mysql.createConnection({
   host:"localhost",
   user: "root",
-  password: "2016Pa13Qr10Lg",
+  password: "Taniamoreno1991",
   database: "netflix"
 });
 connection.connect();
@@ -40,7 +40,7 @@ app.get('/movies', async (req, res) => {
     let queryMovies = '';
     if (genreFilter !== undefined) {
 
-     queryMovies = "SELECT * FROM movies WHERE genre = ? ";
+     queryMovies = "SELECT * FROM movies WHERE genre = ? && ORDER BY title ASC ";
      const [results] = await conn.query(queryMovies, [req.query.genre])
      conn.end();
      res.json({
@@ -70,5 +70,23 @@ app.get('/movies', async (req, res) => {
      
   
   } )
+  
+});
+
+const pathServerStatic = "./src/public-react";
+app.use(express.static(pathServerStatic));
+
+const pathServerStaticImages = "./src/public-movies-images";
+app.use(express.static(pathServerStaticImages));
+
+// Endpoint para gestionar los errores 404
+app.get('*', (req, res) => {
+// Relativo a este directorio
+  const notFoundFileRelativePath = '../public/404-not-found.html';
+  const notFoundFileAbsolutePath = path.join(
+    __dirname,
+    notFoundFileRelativePath
+  );
+  res.status(404).sendFile(notFoundFileAbsolutePath);
 });
 
