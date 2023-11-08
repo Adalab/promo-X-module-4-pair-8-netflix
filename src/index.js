@@ -11,12 +11,12 @@ app.use(cors());
 app.use(express.json({ limit: '25mb' }));
 
 //conexion a la base de datos
-async function getConnetion (){
+async function getConnection (){
   //crear y configurar conexion
 const connection = await mysql.createConnection({
   host:"localhost",
   user: "root",
-  password: "Taniamoreno1991",
+  password: "2016Pa13Qr10Lg",
   database: "netflix"
 });
 connection.connect();
@@ -35,12 +35,12 @@ app.get('/movies', async (req, res) => {
 
   //obteber los datos de la base de datos
     //1. obtener conexion  
-    const conn = await getConnetion();
+    const conn = await getConnection();
     
     let queryMovies = '';
-    if (genreFilter !== undefined) {
+    if (genreFilter !== undefined && genreFilter!== "") {
 
-     queryMovies = "SELECT * FROM movies WHERE genre = ? && ORDER BY title ASC ";
+     queryMovies = "SELECT * FROM movies WHERE genre = ? ORDER BY title ASC; ";
      const [results] = await conn.query(queryMovies, [req.query.genre])
      conn.end();
      res.json({
@@ -59,19 +59,20 @@ app.get('/movies', async (req, res) => {
 
     }
   
-    app.get('/id',async (req, res) =>{
-      const filterId= req.query.id_movies;
-      const query= "SELECT * FROM movies WHERE id_movies=? ";
-      const Id = req.query.id_movies;
-      const connection = await getConnection();
-      const [results] = await connection.query(query,[filterId, Id] );
-      res.json(results);
-      connection.end();
-     
-  
-  } )
-  
 });
+
+app.get('/movies/:id',async (req, res) =>{
+  const filterId= req.params.id;
+  console.log(filterId); 
+  const query= "SELECT * FROM movies WHERE id_movies=? ";
+  const connection = await getConnection();
+  const [results] = await connection.query(query,[filterId] );
+  console.log(results); 
+  res.json(results);
+  connection.end();
+ 
+
+} )
 
 const pathServerStatic = "./src/public-react";
 app.use(express.static(pathServerStatic));
