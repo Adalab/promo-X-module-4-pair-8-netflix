@@ -39,16 +39,16 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 
 **4.6 Express JS II:**
 
-- [ ] 1. Filtrar por género
-- [ ] 2. Ordenar por nombre
+- [X] 1. Filtrar por género
+- [X] 2. Ordenar por nombre
 - [ ] 3. Login
 - [ ] 4. Bonus: Mantén logueada a la usuaria
 
 **4.7 Express JS III:**
 
-- [ ] 1. Servidor de estáticos para React
-- [ ] 2. Servidor de estáticos para las fotos
-- [ ] 3. Crea un motor de plantillas
+- [X] 1. Servidor de estáticos para React
+- [X] 2. Servidor de estáticos para las fotos
+- [X] 3. Crea un motor de plantillas
 
   - [ ] 1. Obtener el id de la película a renderizar
   - [ ] 2. Obtener la película

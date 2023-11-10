@@ -9,6 +9,7 @@ const app = express();
 //configurar el servidor
 app.use(cors());
 app.use(express.json({ limit: '25mb' }));
+app.set('view engine', 'ejs')
 
 //conexion a la base de datos
 async function getConnection (){
@@ -16,7 +17,7 @@ async function getConnection (){
 const connection = await mysql.createConnection({
   host:"localhost",
   user: "root",
-  password: "2016Pa13Qr10Lg",
+  password: "Taniamoreno1991",
   database: "netflix"
 });
 connection.connect();
@@ -66,9 +67,10 @@ app.get('/movies/:id',async (req, res) =>{
   console.log(filterId); 
   const query= "SELECT * FROM movies WHERE id_movies=? ";
   const connection = await getConnection();
-  const [results] = await connection.query(query,[filterId] );
-  console.log(results); 
-  res.json(results);
+  const [foundMovie] = await connection.query(query,[filterId] );
+  console.log(foundMovie); 
+  // res.json(results);
+  res.render('movie', foundMovie[0]);
   connection.end();
  
 
@@ -80,14 +82,18 @@ app.use(express.static(pathServerStatic));
 const pathServerStaticImages = "./src/public-movies-images";
 app.use(express.static(pathServerStaticImages));
 
+const pathServerPublicStyles = './src/public-css';
+app.use(express.static(pathServerPublicStyles));
+
+
 // Endpoint para gestionar los errores 404
-app.get('*', (req, res) => {
-// Relativo a este directorio
-  const notFoundFileRelativePath = '../public/404-not-found.html';
-  const notFoundFileAbsolutePath = path.join(
-    __dirname,
-    notFoundFileRelativePath
-  );
-  res.status(404).sendFile(notFoundFileAbsolutePath);
-});
+// app.get('*', (req, res) => {
+// // Relativo a este directorio
+//   const notFoundFileRelativePath = '../public/404-not-found.html';
+//   const notFoundFileAbsolutePath = path.join(
+//     __dirname,
+//     notFoundFileRelativePath
+//   );
+//   res.status(404).sendFile(notFoundFileAbsolutePath);
+// });
 
